@@ -52,11 +52,13 @@ function mining (distance)
 end
 
 function init_mining ()
-    for i = 0, 3 do
+    for i = 0, 4 do
         move_front_3x3()
     end
+    half_turn()
+    turtle.forward()
     turtle.placeDown()
-    turtle.turnLeft()
+    turtle.turnRight()
     turtle.forward()
 end
 
