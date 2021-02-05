@@ -33,8 +33,6 @@ function unload_inventory ()
     end
     turtle.select(1)
     half_turn()
-    while (turtle.forward()) do
-    end
 end
 
 function mining (distance)
@@ -65,6 +63,8 @@ end
 if turtle.getFuelLevel() < 132 then
     print("Not enought fuel")
 else
+    while (turtle.forward()) do
+    end
     init_mining()
     mining(30)
     for i = 1, 3 do
