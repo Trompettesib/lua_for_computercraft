@@ -85,8 +85,8 @@ end
 mining(30)
 instant_pos = {gps.locate()}
 while ((instant_pos[1] ~= main_line_pos[1]) or (instant_pos[3] ~= main_line_pos[3])) do
-    print("x = ", instant_pos[1], " == ", main_line_pos[1])
-    print("z = ", instant_pos[3], " == ", main_line_pos[3])
+    --print("x = ", instant_pos[1], " == ", main_line_pos[1])
+    --print("z = ", instant_pos[3], " == ", main_line_pos[3])
     turtle.forward()
     instant_pos = {gps.locate()}
 end
