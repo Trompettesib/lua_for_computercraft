@@ -27,7 +27,7 @@ end
 function unload_inventory ()
     while (turtle.forward()) do
     end
-    for i = 2, 16 do
+    for i = 1, 16 do
         turtle.select(i)
         turtle.drop(64)
     end
@@ -60,18 +60,26 @@ function init_mining ()
     turtle.forward()
 end
 
-if turtle.getFuelLevel() < 132 then
-    print("Not enought fuel")
-else
-    while (turtle.forward()) do
-    end
-    init_mining()
-    mining(30)
-    for i = 1, 3 do
-        turtle.forward()
-    end
-    mining(30)
-    turtle.forward()
+function refill ()
     turtle.turnLeft()
-    unload_inventory()
+    turtle.suck(64)
+    turtle.refuel()
+    turtle.turnLeft()
+    turtle.drop(64)
+    turtle.turnLeft()
+    turtle.suck(64)
+    turtle.turnLeft()
 end
+
+refill()
+while (turtle.forward()) do
+end
+init_mining()
+mining(30)
+for i = 1, 3 do
+    turtle.forward()
+end
+mining(30)
+turtle.forward()
+turtle.turnLeft()
+unload_inventory()
